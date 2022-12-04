@@ -1,0 +1,53 @@
+const orderControlFormCreateObj=()=>{
+if (objGottenOrderDetail==undefined) {
+    return
+}
+    const completedOrderControl=new controlFormClass(
+        objGottenOrderDetail.KayitTrh,
+        objGottenOrderDetail.OperasyonMerkezi,
+        objGottenOrderDetail.GercekIsGerilimSeviyesi,
+        goruntuluTeyitGerekli.checked,
+        objGottenOrderDetail.SiparisNo,
+        objGottenOrderDetail.SiparisAciklama,
+        objGottenOrderDetail.IsyeriKodu,
+        objGottenOrderDetail.TeyitVerenSiciller,
+        objGottenOrderDetail.VideoVerenIsimler,
+        enjKesmeTeyitBilgisi.value,
+        enjKesmeLinki.getAttribute('src'),
+        enjKesmeTeyitVerenKisi.value,
+        enjKesmeAciklama.value,
+        dokTeyitBilgisi.value,
+        dokLinki.getAttribute('src'),
+        dokTeyitVerenKisi.value,
+        dokAciklama.value,
+        enjVermeTeyitBilgisi.value,
+        enjVermeLinki.getAttribute('src'),
+        enjVermeTeyitVerenKisi.value,
+        enjVermeAciklama.value,
+        cikisTeyitBilgisi.value,
+        cikisLinki.getAttribute('src'),
+        cikisTeyitVerenKisi.value,
+        cikisAciklama.value,
+        inisTeyitBilgisi.value,
+        inisLinki.getAttribute('src'),
+        inisTeyitVerenKisi.value,
+        inisAciklama.value,
+        topraklamaTeyitBilgisi.value,
+        topraklamaLinki.getAttribute('src'),
+        toprakTeyitVerenKisi.value,
+        toprakAciklama.value,
+        ekedTeyitBilgisi.value,
+        ekedLinki.getAttribute('src'),
+        ekedTeyitVerenKisi.value,
+        ekedAciklama.value,
+        yolTeyitBilgisi.value,
+        yolLinki.getAttribute('src'),
+        yolTeyitVerenKisi.value,
+        yolAciklama.value,
+        geriBildirimYapilmali.checked,
+        teyitlerTam.checked,
+        objGottenOrderDetail.SanalEkipKodlari
+    )
+    objcompletedOrderControl=completedOrderControl
+}
+

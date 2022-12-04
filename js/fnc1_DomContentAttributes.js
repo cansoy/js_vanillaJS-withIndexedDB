@@ -1,0 +1,3 @@
+const domContentAttributes=()=>{
+    // İptal ettim 
+}

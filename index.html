@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Başkent Metropol Görüntülü Teyit</title>
+</head>
+<body class="bg-secondary bg-opacity-10">
+    <div class="container-fluid">
+        <!-- Navigasyon Barı ve Linkler -->
+        <nav class="navbar mb-2 bg-info bg-opacity-10" id="navBarLinksSection">
+            <div class="container-fluid">
+              <form class="m-1 d-flex" id="searchListForm">
+                <select class="m-1 form-select" aria-label="Default select example"id="searchOperationCenter"></select>
+                <input class="m-1 form-control me-2" type="date" placeholder="Search" aria-label="Search" id="searchDate">
+                <button class="m-1 btn btn-outline-primary position-relative" type="submit" id="searchListButton">Listele
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" id="countOrderNumber">
+                </button>
+              </form>
+              <div class="d-flex justify-content-around">
+                <a class="m-1 p-1 nav-link border-bottom border-danger shadow bg-body rounded" href="./teyit/teyitraporu.html" target="_blank">Teyit Raporu</a>
+                <a class="m-1 p-1 nav-link border-bottom border-danger shadow bg-body rounded"  href="./eslesmeyenler/eslesmeyen.html" target="_blank" >Eşleşmeyen Görüntüler</a>
+                <a class="m-1 p-1 nav-link border-bottom border-danger shadow bg-body rounded"  href="./degerlendirilenler/degerlendirilenler.html" target="_blank">Değerlendirilen Siparişler</a>
+              </div>
+              <div class="d-flex justify-content-start">
+                <button type="button" class="m-1 p-2 btn btn-success text-light" id="sendEmailButton">Mail Gönder</button>
+              </div>
+            </div>
+        </nav>
+        <!-- Sipariş Sipariş Detay Media Ve Form Bölümü -->
+        <div class="border">
+            <div class="d-flex justify-content-start" id="orderDetailMediaPlayerFormSection">
+                <!-- Sipariş bilgileri No,Tipi,Gerilimi Ekip Kodu -->
+                <div class="border" id="orderTableSection">
+                    <table class="table table-bordered border-info table-striped table-hover" id="orderTableSectionTable">
+                        <thead>
+                          <tr>
+                            <th class="position-relative fs-6">
+                                <span class="badge bg-primary" id="filteredBadgeOrderNoNumber"></span>
+                            </th>
+                            <th class="position-relative fs-6">
+                                <span class="badge bg-primary" id="filteredBadgeOrderTypeNumber"></span>
+                            </th>
+                            <th class="position-relative fs-6">
+                                <span class="badge bg-primary" id="filteredBadgeOrderVoltageNumber"></span>
+                            </th>
+                            <th class="position-relative fs-6">
+                                <span class="badge bg-primary" id="filteredBadgeOrderTimeNumber"></span>
+                            </th>
+                            <th class="position-relative fs-6">
+                                <span class="badge bg-primary" id="filteredBadgeOrderCrewNumber"></span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Sipariş Detay bilgileri oms no çalışmas suresi.... -->
+                <div class="border" id="orderDetailSection">
+                    <div class="d-flex flex-column justify-content-start">
+                        <!-- offcanvas top -->
+                            <button class="btn btn-primary fw-6" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="orderMoreDetailBtn" src="">SİPARİŞ DETAYLARI</button>
+
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasRightLabel">DETAY LİSTESİ</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                            <!-- Siparişin daha detyalı olan bölgesi  -->
+                                <div class="container order-more-detail">
+                                    <!-- BO Türü -->
+                                    <div class="row">
+                                      <div class="border col order-more-detail-head">BO Aktivite Türü</div>
+                                      <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Çalışma Türü</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Arıza Alt Kodu</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Arıza Sebebi</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Arıza Başlangıç Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Hareket Başlangıç Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Arızaya Müdehala Süresi</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Çalışma Başlangıç Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Yol Çalışma Dönüş Süreleri</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Teyit Veren Siciller</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Teyit Verilen Kanallar(AG/YG)</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Teyit Türü(On/Off)</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Teyit Verme Saatleri</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Enerji Kesme Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Tahmini Enerji Verme Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Gerçek Enerji Verme Tarih/Saat</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">OMS Siparişi</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Düşüm Yapılam Malzemeler</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">Toplam Malzeme Tutar</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="border col order-more-detail-head">İşin Adresi</div>
+                                        <div class="border col order-more-detail-inner"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            </div>
+                        <!-- offcanvas top -->
+                        <!-- 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+                        <div class="accordion" id="orderDetailAccordion">
+                            <!-- Accrdion Sipariş Açıklaması -->
+                            <div class="accordion-item" >
+                            <h2 class="accordion-header" id="siparis-aciklamasi-head">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#siparis-aciklamasi-inner" aria-expanded="true" aria-controls="siparis-aciklamasi-inner">
+                                AÇIKLAMA
+                                </button>
+                            </h2>
+                            <div id="siparis-aciklamasi-inner" class="accordion-collapse collapse bg-info show" aria-labelledby="siparis-aciklamasi-head" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Accordion Teyit veren isimler  -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="siparis-teyitverenisimler-head">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#siparis-teyitverenisimler-inner" aria-expanded="true" aria-controls="siparis-teyitverenisimler-inner">
+                                        TEYİT VEREN İSİMLER
+                                    </button>
+                                </h2>
+                                <div id="siparis-teyitverenisimler-inner" class="accordion-collapse collapse bg-info show" aria-labelledby="siparis-teyitverenisimler-head" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accordion İş yeri Kodu Süresi -->
+                            <div class="accordion-item">
+                            <h2 class="accordion-header" id="siparis-isyerikodu-head">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#siparis-isyerikodu-inner" aria-expanded="true" aria-controls="siparis-isyerikodu-inner">
+                                    İŞ YERİ KODU
+                                </button>
+                            </h2>
+                            <div id="siparis-isyerikodu-inner" class="accordion-collapse collapse bg-info show" aria-labelledby="siparis-isyerikodu-head" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                    <!-- 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000 -->
+                    </div>
+                </div>
+                <!-- Sipariş VideoLinkleri.... -->
+                <div class="border" id="orderVideoLinkSection"></div>
+                <!-- Media Player Linki.... -->
+                <div class="border bg-dark d-flex justify-content-center align-items-center" id="orderMediaPlayerSection"></div>
+                <!-- Teyit videolarının check list bölümü -->
+                <div class="border d-flex flex-column justify-content-around" id="videoCheckListSection">
+                    <!-- EK Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="enjKesmeChecked">
+                        <label class="form-check-label border-bottom" for="enjKesmeChecked">ENJ KESME</label>
+                    </div>
+                    <!-- DÖK Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="dokChecked">
+                        <label class="form-check-label border-bottom" for="dokChecked">DÖK</label>
+                    </div>
+                    <!-- EV Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="enjVermeChecked">
+                        <label class="form-check-label border-bottom" for="enjVermeChecked">ENJ VERME</label>
+                    </div>
+                    <!-- ÇIKIŞ Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="cikisChecked">
+                        <label class="form-check-label border-bottom" for="cikisChecked">ÇIKIŞ VİD</label>
+                    </div>
+                    <!-- İNİŞ Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="inisChecked">
+                        <label class="form-check-label border-bottom" for="inisChecked">İNİŞ VİD</label>
+                    </div>
+                    <!-- TOPRAK Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="toprakChecked">
+                        <label class="form-check-label border-bottom" for="toprakChecked">TOPRAKLAMA</label>
+                    </div>
+                    <!-- EKED Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="ekedChecked" >
+                        <label class="form-check-label border-bottom" for="ekedChecked">EKED VİD</label>
+                    </div>
+                    <!-- YOL Check list -->
+                    <div class="form-check link-check-list">
+                        <input class="form-check-input link-check-list" type="checkbox" id="yolChecked">
+                        <label class="form-check-label border-bottom" for="yolChecked">YOL ÇAL.</label>
+                    </div>
+                    <div class="blank-area">
+                        <!-- check listi yukarı taşımak için kullandım -->
+                    </div>
+                </div>
+                <!-- Kontrol Fromu Bölümü EK,DÖK, EV,İNİŞ,ÇIKIŞ....... -->
+                <div class="border d-flex flex-column justify-content-start" id="orderControlFormSection">
+                    <div class="border d-flex flex-row justify-content-around">
+                        <div><button type="button" class="btn btn-primary" id="orderCompleted">Sipariş Tamamlandı</button></div>
+                        <div><button type="button" class="btn btn-warning" id="clearMyAllControlForm">Formu Temizle</button></div>
+                    </div>
+                    <!-- Görüntülü Teyit Gereklimi -->
+                    <div class="border d-flex flex-row justify-content-around">
+                        <span class="bg-success bg-opacity-50 teyit-gerek-var-label">TEYİT GEREKLİ</span> 
+                        <input class="form-check-input" type="radio" name="goruntuluTeyitGerekliMi" id="goruntuluTeyitGerekli">
+                        <input class="form-check-input" type="radio" name="goruntuluTeyitGerekliMi" id="goruntuluTeyitGerekYok">
+                        <span class="bg-info bg-opacity-50 teyit-gerek-yok-label">GEREK YOK</span>
+                    </div>
+                    <!-- Enerji kesme bilgileri -->
+                    <div class="border d-flex flex-column justify-content-start" id="enerji-kesme-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center enj-kesme-label">ENERJİ KESME</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="enjKesmeTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="enjKesmeTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="enjKesmeLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="enjKesmeAciklama">
+                        </div>
+                    </div>
+                    <!-- Dokunmadan Önce Kontrol Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="dok-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center dok-label">DOKUNMADAN ÖNCE KONTROL</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="dokTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="dokTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="dokLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="dokAciklama">
+                        </div>
+                    </div>
+                    <!-- Enerji Verme Kontrol Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="enerji-verme-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center enj-verme-label">ENERJİ VERME</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="enjVermeTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="enjVermeTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="enjVermeLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="enjVermeAciklama">
+                        </div>
+                    </div>
+                    <!-- Çıkış Verme Kontrol Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="cikis-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center cikis-label">ÇIKIŞ VİDEOSU</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="cikisTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="cikisTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="cikisLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="cikisAciklama">
+                        </div>
+                    </div>
+                    <!-- İniş Verme Kontrol Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="inis-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center inis-label">İNİŞ VİDEOSU</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="inisTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="inisTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="inisLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text"  placeholder="Eksik ve Açıklama Kısmı" id="inisAciklama">
+                        </div>
+                    </div>
+                    <!-- TOPRAKLAMA Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="topraklama-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center topraklama-label">TOPRAKLAMA VİDEOSU</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="topraklamaTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="toprakTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="topraklamaLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="toprakAciklama">
+                        </div>
+                    </div>
+                    <!-- EKED Verme Kontrol Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="eked-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center eked-label">EKED VİDEOSU</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="ekedTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="ekedTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="ekedLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text"  placeholder="Eksik ve Açıklama Kısmı" id="ekedAciklama">
+                        </div>
+                    </div>
+                    <!-- Yol Çalışması  Çalışması -->
+                    <div class="border d-flex flex-column justify-content-start" id="yol-section-control-form">
+                        <div class="bg-secondary bg-opacity-50 text-center yol-label">YOL ÇALIŞMASI VİDEOSU</div>
+                        <div class="border d-flex flex-row justify-content-between">
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="yolTeyitBilgisi">
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="kayitVar">Kayıt Var</option>
+                                    <option value="eslesmeyenlerde">Eşleşmeyenlerde</option>
+                                    <option value="teyitVerilmedi">Teyit Verilmemiş</option>
+                                    <option value="sistemeDusmemis">Sisteme Düşmemiş</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <select class="form-select" aria-label="Default select example" id="yolTeyitVerenKisi">
+                                    <option value="kime">Kime ?</option>
+                                    <option value="gerekYok">Gerek Yok</option>
+                                    <option value="telsiz">Telsiz</option>
+                                    <option value="isgKapatani">İSG Kpatanı</option>
+                                    <option value="scada">SCADA</option>
+                                    <option value="offline">Offline</option>
+                                  </select>
+                            </div>
+                            <div>
+                                <div class="m-1 p-1 link-exist" src="" id="yolLinki"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control explanation" type="text" placeholder="Eksik ve Açıklama Kısmı" id="yolAciklama">
+                        </div>
+                    </div>
+                    <!-- Geri bildirim ve Teyit eksik tam soruları -->
+                    <div class="d-flex flex-column justify-content-start" id="bildirim-teyit-section-control-form">
+                        <!-- Geri bildirim -->
+                        <div class="m-1 bg-warning bg-opacity-50 d-flex flex-row justify-content-around">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="geriBildirimYapilmaliMi" id="geriBildirimYapilmali" >
+                                <label class="form-check-label bildirim-yapilmali-label" for="geriBildirimYapilmali" >
+                                  Geri Bildirim Yapılmalı
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="geriBildirimYapilmaliMi" id="geriBildirimGerekYok">
+                                <label class="form-check-label" for="geriBildirimGerekYok">
+                                  Gerek Yok
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Teyit eksik tam -->
+                        <div class="m-1 bg-primary bg-opacity-50 d-flex flex-row justify-content-around">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="teyitlerTammi" id="teyitlerTam">
+                                <label class="form-check-label teyitler-tam-label" for="teyitlerTam">
+                                  Teyitler Tam
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="teyitlerTammi" id="teyitlerEksik">
+                                <label class="form-check-label" for="teyitlerEksik">
+                                  Eksik Teyit Mevcut
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fonksiyonlar -->
+    <script src="./js/a00_PublicDeclarations.js"></script>
+    <script src="./js/cls1_controlFormClass.js"></script>
+    <script src="./js/fnc1_DomContentAttributes.js"></script>
+    <script src="./js/fnc2_LoadOperationCenters.js"></script>
+    <script src="./js/fnc3_DeleteAllDB.js"></script>
+    <script src="./js/fnc4_CreateMainDataDB.js"></script>
+    <script src="./js/fnc5_CreateUnmatchedLinksDB.js"></script>
+    <script src="./js/fnc6_FillTableWithDBData.js"></script>
+    <script src="./js/fnc7_InputsAdvancedFilter.js"></script>
+    <script src="./js/fnc8_CleanHtmlDocWindow.js"></script>
+    <script src="./js/fnc9_CreateNewListIndexedDB.js"></script>
+    <script src="./js/fnc10_CheckExistingAnyDB.js"></script>
+    <script src="./js/fnc11_GetExistingDBData.js"></script>
+    <script src="./js/fnc12_WarningDontHaveAnyDB.js"></script>
+    <script src="./js/fnc13_OrderHVBackgroundColorRed.js"></script>
+    <script src="./js/fnc14_getOrderDetails.js"></script>
+    <script src="./js/fnc15_orderBgColorChange.js"></script>
+    <script src="./js/fnc16_videoLinkBgColorChange.js"></script>
+    <script src="./js/fnc17_a_orderControlConfirmNoNeed.js"></script>
+    <script src="./js/fnc17_orderControlFormControls.js"></script>
+    <script src="./js/fnc18_cleanCheckList.js"></script>
+    <script src="./js/fnc19_cleanAllFormControls.js"></script>
+    <script src="./js/fnc20_checkBoxPutLinksControlForm.js"></script>
+    <script src="./js/fnc21_orderControlFormCreateObj.js"></script>
+    <script src="./js/fnc22_afterFillOrderControlFormThenClean.js"></script>
+    <script src="./js/fnc23_colorGreenControlledOrder.js"></script>
+    <script src="./js/fnc24_createControlledOrderDB.js"></script>
+    <script src="./js/fnc25_makeGreenControlledOrders.js"></script>
+    <script src="./js/fnc26_toSendEmailCheckConditions.js"></script>
+
+    <!-- Aksiyonlar -->
+    <script src="./js/act1_WinDomContentLoaded.js"></script>
+    <script src="./js/act2_orderBelowClickActions.js"></script>
+    <script src="./js/act3_orderControlFormComplete.js"></script>
+    <script src="./js//act4_checkBoxPutLinksControlAction.js"></script>
+    <script src="./js/act5_toSendEmailtakeAction.js"></script>
+
+</body>
+</html>

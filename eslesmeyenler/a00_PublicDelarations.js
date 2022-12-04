@@ -1,0 +1,4 @@
+const indexedDBAPIUnmatchedLinks='APIUnmatchedLinksDB'
+const indexedDBAPIUnmatchedLinksVersion=1
+const indexedDBUnmathcedLinksObject='objUnmatchedLinks'
+const tableBody=document.querySelector('tbody')

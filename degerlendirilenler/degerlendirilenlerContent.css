@@ -1,0 +1,134 @@
+tr>td:nth-child(10):hover:before{
+    content: "ENJ KESME TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(11):hover:before{
+    content: "ENJ KESME VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(12):hover:before{
+    content: "ENJ KESME ONAY VEREN ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(13):hover:before{
+    content: "ENJ KESME AÇIKLAMA ";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(14):hover:before{
+    content: "DOK TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(15):hover:before{
+    content: "DOK VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(16):hover:before{
+    content: "DOK ONAY VEREN ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(17):hover:before{
+    content: "DOK AÇIKLAMA";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(18):hover:before{
+    content: "ENJ VERME TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(19):hover:before{
+    content: "ENJ VERME VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(20):hover:before{
+    content: "ENJ VERME ONAY VEREN ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(21):hover:before{
+    content: "ENJ VERME AÇIKLAMA ";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(22):hover:before{
+    content: "ÇIKIŞ TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(23):hover:before{
+    content: "ÇIKIŞ VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(24):hover:before{
+    content: "ÇIKIŞ ONAY VEREN ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(25):hover:before{
+    content: "ÇIKIŞ AÇIKLAMA";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(26):hover:before{
+    content: "İNİŞ TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(27):hover:before{
+    content: "İNİŞ VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(28):hover:before{
+    content: "İNİŞ ONAY VEREN ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(29):hover:before{
+    content: "İNİŞ AÇIKLAMA ";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(30):hover:before{
+    content: "TOPRAKLAMA TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(31):hover:before{
+    content: "TOPRAKLAMA VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(32):hover:before{
+    content: "TOPRAKLAMA KAYIT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(33):hover:before{
+    content: "TOPRAKLAMA AÇIKLAMA ";
+    background-color: rgb(42, 42, 88);
+}
+
+tr>td:nth-child(34):hover:before{
+    content: "EKED TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(35):hover:before{
+    content: "EKED VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(36):hover:before{
+    content: "EKED KAYIT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(37):hover:before{
+    content: "EKED AÇIKLAMA ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(38):hover:before{
+    content: "YOL TEYİT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(39):hover:before{
+    content: "YOL VİDEO ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(40):hover:before{
+    content: "YOL KAYIT ";
+    background-color: rgb(42, 42, 88);
+}
+tr>td:nth-child(41):hover:before{
+    content: "YOL AÇIKLAMA";
+    background-color: rgb(42, 42, 88);
+}

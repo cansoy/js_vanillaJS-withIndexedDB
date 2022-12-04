@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#navBarLinksSection{
+    height: auto;
+}
+#orderDetailMediaPlayerFormSection{
+    height: 100vh;
+}
+#orderTableSection{
+    flex: 4;
+    overflow: auto;
+}
+table{
+    cursor: pointer;
+}
+#orderDetailSection{
+    flex: 1.5;
+    overflow: auto;
+}
+#orderVideoLinkSection{
+    flex: 0.4;
+    cursor: pointer;
+    overflow: auto;
+}
+#orderMediaPlayerSection{
+    flex: 5;
+}
+video{
+    width: 99%;
+    height: 99%;
+}
+#videoCheckListSection{
+    flex:0.5
+}
+.blank-area{
+    height: 40%;
+}
+#orderControlFormSection{
+    flex: 3;
+}
+
+.one-second-background{
+    background-color:#AED6F1
+}
+label.form-check-label.border-bottom:hover{
+    background-color:#D2B4DE;
+    cursor: pointer;
+}
+
+.one-second-background-label{
+    color: white;
+    background-color:#C0392B !important;
+    font-weight: bold;
+}
+
+.delete-link{
+    cursor: pointer;
+}
